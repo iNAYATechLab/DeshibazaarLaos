@@ -1,0 +1,48 @@
+# Laravel / PHP dependencies
+/vendor/
+composer.phar
+
+# JavaScript dependencies and build caches
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+/pnpm-debug.log
+/.npm/
+
+# Laravel environment, runtime and generated files
+.env
+.env.*
+!.env.example
+/.phpunit.result.cache
+/storage/*.key
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+/public/storage
+
+# Test coverage and local tooling
+/coverage/
+.phpunit.cache
+/.pest/
+
+# IDE / operating system files
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Local release output
+/releases/
+*.zip

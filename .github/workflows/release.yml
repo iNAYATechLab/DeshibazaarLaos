@@ -1,0 +1,81 @@
+name: Publish Production Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build package and publish GitHub Release
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.ref_name }}
+
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate SemVer tag and canonical version
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Invalid SemVer tag: $TAG"; exit 1; }
+          VERSION="$(tr -d '[:space:]' < VERSION)"
+          [[ "$VERSION" == "$TAG" ]] || { echo "VERSION ($VERSION) must equal tag ($TAG)."; exit 1; }
+          grep -q "\*\*Current Version:\*\* \`$TAG\`" README.md
+
+      - name: Set up PHP
+        if: ${{ hashFiles('composer.json') != '' }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+          coverage: none
+
+      - name: Install production Composer dependencies
+        if: ${{ hashFiles('composer.json') != '' }}
+        run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+
+      - name: Set up Node.js
+        if: ${{ hashFiles('package.json') != '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Build production frontend assets
+        if: ${{ hashFiles('package.json') != '' }}
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          npm run build
+
+      - name: Create deployment ZIP
+        id: package
+        run: |
+          scripts/package-release.sh "$TAG"
+          echo "archive=releases/deshibazaar-${TAG}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Extract current release notes from README
+        run: |
+          awk -v tag="$TAG" '
+            $0 ~ "^### " tag " " { capture=1; next }
+            capture && /^### / { exit }
+            capture { print }
+          ' README.md > RELEASE_NOTES.md
+          test -s RELEASE_NOTES.md || printf 'Release %s\n' "$TAG" > RELEASE_NOTES.md
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$TAG" "${{ steps.package.outputs.archive }}" \
+            --title "DeshiBazaar.com $TAG" \
+            --notes-file RELEASE_NOTES.md \
+            --verify-tag
