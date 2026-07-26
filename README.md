@@ -1,8 +1,8 @@
 # DeshiBazaar.com
 
-**Current Version:** `v0.2.0`  
+**Current Version:** `v0.3.0`  
 **Release Date:** 2026-07-26  
-**Status:** Project Initialization
+**Status:** Base Laravel Foundation
 
 ## Overview
 
@@ -120,6 +120,16 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v0.3.0 — 2026-07-26
+**Base Laravel Architecture & Super Admin Setup**
+
+- Initialized the Laravel 12 application foundation, environment template, asset pipeline, and application structure.
+- Added role-based user data model and seeders for `super_admin` and `customer` roles.
+- Added the initial Super Admin account seed: `admin@deshibazaar.com`; its password is configured through `SUPER_ADMIN_PASSWORD` and must be changed before production use.
+- Implemented session authentication, super-admin authorization middleware, and protected administration routes.
+- Created responsive public, authentication, and Super Admin dashboard layouts with module placeholders.
+- Added dynamic system-version rendering in public and administration footers.
 
 ### v0.2.0 — 2026-07-26
 **Repository Foundation & Automated Release Setup**

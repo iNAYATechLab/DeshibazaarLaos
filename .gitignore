@@ -1,19 +1,26 @@
 # Laravel / PHP dependencies
 /vendor/
 composer.phar
+/auth.json
 
 # JavaScript dependencies and build caches
 /node_modules/
-/npm-debug.log
-/yarn-error.log
-/pnpm-debug.log
 /.npm/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/pnpm-debug.log*
 
-# Laravel environment, runtime and generated files
+# Environment and local credentials
 .env
 .env.*
 !.env.example
+.env.backup
+.env.production
+
+# Laravel runtime and generated content
 /.phpunit.result.cache
+/.phpunit.cache
 /storage/*.key
 /storage/logs/*
 !/storage/logs/.gitignore
@@ -27,22 +34,29 @@ composer.phar
 !/storage/framework/views/.gitignore
 /bootstrap/cache/*
 !/bootstrap/cache/.gitignore
+/public/build/
+/public/hot
 /public/storage
+/storage/pail/
 
-# Test coverage and local tooling
+# Test, tooling and local release output
 /coverage/
-.phpunit.cache
 /.pest/
+/releases/
+/.release-staging/
+*.zip
 
 # IDE / operating system files
+/.fleet/
 /.idea/
+/.nova/
 /.vscode/
+/.zed/
+.phpactor.json
 *.swp
 *.swo
 *~
 .DS_Store
 Thumbs.db
-
-# Local release output
-/releases/
-*.zip
+Homestead.json
+Homestead.yaml
