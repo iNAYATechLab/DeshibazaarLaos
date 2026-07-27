@@ -1,7 +1,7 @@
 # DeshiBazaar.com
 
-**Current Version:** `v0.3.0`  
-**Release Date:** 2026-07-26  
+**Current Version:** `v0.4.0`  
+**Release Date:** 2026-07-27  
 **Status:** Base Laravel Foundation
 
 ## Overview
@@ -120,6 +120,13 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v0.4.0 — 2026-07-27
+**Money Exchange Calculator & WhatsApp Inquiry Module**
+
+- Added the Money Exchange Calculator module for LAK-to-BDT, LAK-to-INR, and LAK-to-PKR estimates.
+- Added Super Admin daily exchange-rate management with activation controls and rate update timestamps.
+- Added public WhatsApp direct inquiry integration with structured, pre-filled exchange inquiry messages.
 
 ### v0.3.0 — 2026-07-26
 **Base Laravel Architecture & Super Admin Setup**
