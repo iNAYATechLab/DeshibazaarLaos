@@ -1,0 +1,3 @@
+<?php
+use Illuminate\Database\Migrations\Migration;use Illuminate\Database\Schema\Blueprint;use Illuminate\Support\Facades\Schema;
+return new class extends Migration { public function up():void {Schema::create('products',function(Blueprint $t){$t->id();$t->foreignId('category_id')->constrained()->restrictOnDelete();$t->string('title');$t->decimal('price',14,2);$t->string('unit',50);$t->string('image')->nullable();$t->text('description')->nullable();$t->string('stock_status',30)->default('in_stock');$t->timestamps();$t->index(['category_id','stock_status']);});} public function down():void {Schema::dropIfExists('products');} };

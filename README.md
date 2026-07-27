@@ -1,6 +1,6 @@
 # DeshiBazaar.com
 
-**Current Version:** `v0.4.0`  
+**Current Version:** `v0.5.0`  
 **Release Date:** 2026-07-27  
 **Status:** Base Laravel Foundation
 
@@ -120,6 +120,13 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v0.5.0 — 2026-07-27
+**E-commerce Product Catalog & Grocery Management**
+
+- Added e-commerce product catalog and category management for Fresh Meats, Spices, Dry Foods, and Sweets.
+- Added Super Admin product CRUD, LAK pricing, units, stock status, and product image upload support.
+- Added responsive public storefront and WhatsApp direct ordering integration.
 
 ### v0.4.0 — 2026-07-27
 **Money Exchange Calculator & WhatsApp Inquiry Module**
