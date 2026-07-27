@@ -1,0 +1,1 @@
+<?php namespace App\Http\Controllers;use App\Models\Setting;class ContactController extends Controller{public function __invoke(){return view('contact.index',['settings'=>Setting::pluck('value','key')]);}}

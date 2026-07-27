@@ -1,8 +1,8 @@
 # DeshiBazaar.com
 
-**Current Version:** `v0.6.0`  
+**Current Version:** `v1.0.0`  
 **Release Date:** 2026-07-27  
-**Status:** Base Laravel Foundation
+**Status:** Official Production Release
 
 ## Overview
 
@@ -120,6 +120,15 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v1.0.0 — 2026-07-27
+**Official Production Release**
+
+- Released Super Admin Dashboard, role-based authentication, and store configuration controls.
+- Released LAK-to-BDT/INR/PKR exchange calculator with rate management and WhatsApp inquiries.
+- Released e-commerce product catalog for fresh meats and South Asian groceries, with product/category management and image uploads.
+- Released session cart, consolidated WhatsApp checkout, and English, Bengali, and Hindi storefront support.
+- Added SEO/Open Graph metadata, store location/contact page, Google Maps link, and admin-managed business contact settings.
 
 ### v0.6.0 — 2026-07-27
 **Multi-Item Shopping Cart, Multi-Language & WhatsApp Checkout**
