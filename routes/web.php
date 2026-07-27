@@ -4,11 +4,18 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ExchangeCalculatorController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 Route::get('/money-exchange', ExchangeCalculatorController::class)->name('exchange.calculator');
 Route::get('/shop', StoreController::class)->name('store.index');
+Route::post('/language/{locale}', LocaleController::class)->name('locale.set');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::put('/cart', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');

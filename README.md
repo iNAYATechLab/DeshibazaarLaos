@@ -1,6 +1,6 @@
 # DeshiBazaar.com
 
-**Current Version:** `v0.5.0`  
+**Current Version:** `v0.6.0`  
 **Release Date:** 2026-07-27  
 **Status:** Base Laravel Foundation
 
@@ -120,6 +120,13 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v0.6.0 — 2026-07-27
+**Multi-Item Shopping Cart, Multi-Language & WhatsApp Checkout**
+
+- Added session-based multi-item shopping cart with quantity updates, removal, and LAK total calculation.
+- Added English, Bengali, and Hindi language switcher support for core storefront navigation and checkout UI.
+- Added consolidated WhatsApp cart checkout with order lines, total, and customer contact/delivery details.
 
 ### v0.5.0 — 2026-07-27
 **E-commerce Product Catalog & Grocery Management**
