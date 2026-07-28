@@ -1,6 +1,6 @@
 # DeshiBazaar.com
 
-**Current Version:** `v1.0.0`  
+**Current Version:** `v1.1.0`  
 **Release Date:** 2026-07-27  
 **Status:** Official Production Release
 
@@ -120,6 +120,13 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v1.1.0 — 2026-07-27
+**System Hardening, Analytics & Sitemap**
+
+- Added automatic XML sitemap generation for core pages, active categories, and in-stock product pages.
+- Added Admin-configurable Google Analytics measurement ID and Meta Pixel ID injection.
+- Added baseline security response headers and rate limiting for exchange calculator and cart write operations.
 
 ### v1.0.0 — 2026-07-27
 **Official Production Release**

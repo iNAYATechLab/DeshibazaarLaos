@@ -1,0 +1,3 @@
+<?php
+namespace App\Http\Controllers;use App\Models\Category;use App\Models\Product;use Illuminate\Http\Response;
+class SitemapController extends Controller{public function __invoke():Response{$urls=collect([route('home'),route('store.index'),route('exchange.calculator'),route('contact')]);Category::where('is_active',true)->each(fn($c)=>$urls->push(route('store.category',$c)));Product::where('stock_status','in_stock')->each(fn($p)=>$urls->push(route('store.product',$p)));$xml=view('sitemap',['urls'=>$urls->unique()]);return response($xml,200,['Content-Type'=>'application/xml; charset=UTF-8']);}}
