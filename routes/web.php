@@ -39,5 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class)->only(['index','store','update','destroy']);
         Route::get('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings.index');
         Route::put('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
+        Route::get('/server-check', \App\Http\Controllers\Admin\ServerCheckController::class)->name('server-check');
+        Route::post('/database-backup', \App\Http\Controllers\Admin\DatabaseBackupController::class)->middleware('throttle:3,10')->name('database-backup');
     });
 });

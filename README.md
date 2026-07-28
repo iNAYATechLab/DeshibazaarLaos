@@ -1,6 +1,6 @@
 # DeshiBazaar.com
 
-**Current Version:** `v1.1.0`  
+**Current Version:** `v1.2.0`  
 **Release Date:** 2026-07-27  
 **Status:** Official Production Release
 
@@ -120,6 +120,13 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v1.2.0 — 2026-07-28
+**Database Backup & Hosting Health Check**
+
+- Added Super Admin one-click MySQL/MariaDB SQL database backup download.
+- Added protected Server Health Check utility for PHP version, required extensions, folder permissions, and database connectivity.
+- Updated production deployment instructions and environment requirements.
 
 ### v1.1.0 — 2026-07-27
 **System Hardening, Analytics & Sitemap**
