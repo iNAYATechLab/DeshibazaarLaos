@@ -1,8 +1,8 @@
 # DeshiBazaar.com
 
-**Current Version:** `v1.2.0`  
+**Current Version:** `v2.0.0`  
 **Release Date:** 2026-07-27  
-**Status:** Official Production Release
+**Status:** Complete Production Release (Deployment Ready)
 
 ## Overview
 
@@ -120,6 +120,15 @@ Every release will:
 Secrets such as `.env`, API credentials, WhatsApp credentials, and database credentials will **never** be packaged or committed. A safe `.env.example` will be included instead.
 
 ## Changelog
+
+### v2.0.0 — 2026-07-28
+**Complete Production Release (Deployment Ready)**
+
+- Finalized E-commerce for meat and grocery catalog, stock-aware storefront, shopping cart, and WhatsApp multi-item order checkout.
+- Finalized LAK exchange calculator, Super Admin rate management, and WhatsApp inquiry flow.
+- Finalized English, Bengali, and Hindi user interface support, contact/location management, and Google Maps integration.
+- Finalized SEO metadata, Open Graph previews, XML sitemap, analytics/pixel configuration, security headers, and rate limiting.
+- Finalized Super Admin database backup, server health verification, and dynamic maintenance mode with Super Admin override.
 
 ### v1.2.0 — 2026-07-28
 **Database Backup & Hosting Health Check**
